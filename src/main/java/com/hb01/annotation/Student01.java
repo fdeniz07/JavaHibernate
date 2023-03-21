@@ -1,5 +1,6 @@
 package com.hb01.annotation;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,6 +12,7 @@ public class Student01 {
     @Id
     private int id;
 
+    @Column(name = "name")
     private String name;
 
     private int grade;
