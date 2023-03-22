@@ -1,21 +1,25 @@
 package com.hb01.annotation;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity //!!! @Entity ile bu sinifin DB de bir tabloya karsilik gelmesini sagliyoruz., student01
 @Table(name = "t_student01") //opsiyoneldir, tablo adi konulmazsa class adini tablo adi olarak default alir.
+//Java kodu içinde bu class'a ulaşırken Student01 ile, SQL ile ulaşirken t_student01 ile yazmam lazım
 public class Student01 {
 
-    @Id
+    @Id //Primary key olusmasini saglar
+    //@Column(name = "std_id") -> Column ismini customize eder.
     private int id;
 
-    @Column(name = "name")
+
+    @Column(name = "student_name", length = 100, nullable = false, unique = false)
     private String name;
 
+    //@Transient //!!! Db deki tabloda "grade" adinda bir kolon olusmasini engeller
     private int grade;
+
+//    @Lob //!!! Large Object ile büyük datalar tutulabiliyor.
+//    private byte[] image;
 
 
     //Constructor

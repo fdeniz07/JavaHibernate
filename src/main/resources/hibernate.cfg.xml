@@ -29,7 +29,7 @@
              none: yukarıdakilerin hiç birisini yapmıyor.
          -->
 
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">update</property>  <!--create, validate,update -->
 
         <property name="show_sql">true</property>
 
