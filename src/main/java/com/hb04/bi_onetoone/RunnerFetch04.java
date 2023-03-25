@@ -61,7 +61,6 @@ public class RunnerFetch04 {
         tx.commit();
         session.close();
         sf.close();
-
     }
 
 }
