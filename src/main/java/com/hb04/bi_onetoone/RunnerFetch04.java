@@ -58,11 +58,9 @@ public class RunnerFetch04 {
             System.out.println(Arrays.toString(oa));
         });
 
-
         tx.commit();
         session.close();
         sf.close();
-
 
     }
 
