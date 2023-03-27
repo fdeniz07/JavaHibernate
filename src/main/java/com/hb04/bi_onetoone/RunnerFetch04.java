@@ -58,6 +58,28 @@ public class RunnerFetch04 {
             System.out.println(Arrays.toString(oa));
         });
 
+
+        //!!! HQL ile RIHGHT JOIN
+        // Task 3 : Bütün günlükler ve varsa günlügü olan ögrenciler gelsin
+        String hqlQuery3 = "SELECT s.name, d.name FROM Student04 s RIGHT JOIN FETCH Diary04 d on s.id=d.student";
+        List<Object[]> resultList3 =session.createQuery(hqlQuery3).getResultList();
+
+        resultList3.forEach(oa->{
+            System.out.println(Arrays.toString(oa));
+        });
+
+
+        //!!! HQL ile FULL JOIN
+        //Kisaca : Bütün Student ve Diary bilgilerini getirelim
+        String hqlQuery4 = "SELECT s.name, d.name FROM Student04 s RIGHT JOIN FETCH Diary04 d on s.id=d.student";
+        List<Object[]> resultList4 =session.createQuery(hqlQuery4).getResultList();
+
+
+        resultList4.forEach(oa->{
+            System.out.println(Arrays.toString(oa));
+        });
+
+
         tx.commit();
         session.close();
         sf.close();
