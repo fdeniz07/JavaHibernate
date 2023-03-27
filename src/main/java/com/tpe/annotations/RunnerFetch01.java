@@ -37,8 +37,21 @@ public class RunnerFetch01 {
 
         //***ÖDEV***
         //3-hql ile ismi 'Shrek' olan datayı çekiniz.
+        String hqlQuery2="FROM Developer01 WHERE name='Shrek'";
+        List<Developer01> devList2=session.createQuery(hqlQuery2, Developer01.class).getResultList();
+        devList2.forEach(t-> System.out.println(t));
+
+
         //4-hql ile emaili 'jack@gmail.com' olan datayı çekiniz.
+        String hqlQuery3="FROM Developer01 WHERE email='jack@gmail.com'";
+        Developer01 dev2=session.createQuery(hqlQuery3, Developer01.class).uniqueResult();
+        System.out.println(dev2);
+
+
         //5-hql ile branch i backend olan datanın ismini getiriniz.
+        String hqlQuery4="SELECT d.name FROM Developer01 d WHERE d.branch='backend'";
+        List<String> nameList=session.createQuery(hqlQuery4,String.class).getResultList();
+        nameList.forEach(t-> System.out.println(t));
 
 
 
