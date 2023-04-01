@@ -1,4 +1,4 @@
-package com.hb05;
+package com.hb05.manytoone;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
