@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
@@ -90,12 +91,30 @@ public class RunnerFetch11 {
 
 
         //!!! 4.Örnek MathGrade değeri 95 den küçük olan datalar
-        criteriaQuery.select(root)
-                .where(cb.lessThan(root.get("grade"),95));
+//        criteriaQuery.select(root)
+//                .where(cb.lessThan(root.get("grade"),95));
+//
+//        Query<Student11> query4 = session.createQuery(criteriaQuery);
+//        List<Student11> resultList4 = query4.getResultList();
+//        resultList4.forEach(System.out::println);
 
-        Query<Student11> query4 = session.createQuery(criteriaQuery);
-        List<Student11> resultList4 = query4.getResultList();
-        resultList4.forEach(System.out::println);
+
+        // !!! 5. örnek : id si 1 veya mathGrade i 75 den büyük olan recordu bulalım
+        Long id=1L;
+
+        Predicate predicateForName= cb.equal(root.get("id"),id);
+        Predicate predicateForGrade = cb.greaterThan(root.get("grade"),75);
+
+        Predicate predicateStudent = cb.or(predicateForName,predicateForGrade);
+
+        criteriaQuery.where(predicateStudent);
+
+        Query<Student11> query5 =session.createQuery(criteriaQuery);
+        List<Student11> resultList5 = query5.getResultList();
+        resultList5.forEach(System.out::println);
+
+
+
 
         tx.commit();
         session.close();
