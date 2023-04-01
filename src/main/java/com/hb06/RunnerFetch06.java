@@ -1,6 +1,5 @@
 package com.hb06;
 
-import com.hb05.Student05;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
