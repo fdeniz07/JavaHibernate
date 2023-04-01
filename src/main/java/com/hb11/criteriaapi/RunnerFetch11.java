@@ -72,13 +72,30 @@ public class RunnerFetch11 {
 
 
         //!!! 2.Örnek : Student ismi " Student Name 6" olan öğrenci bilgilerini getirelim
-        criteriaQuery.select(root) //SELECT * FROM Student11
-                .where(cb.equal(root.get("name"),"Student Name 6"));
+//        criteriaQuery.select(root) //SELECT * FROM Student11
+//                .where(cb.equal(root.get("name"),"Student Name 6"));
+//
+//        Query<Student11> query2 = session.createQuery(criteriaQuery);
+//        List<Student11> resultList2 = query2.getResultList();
+//        resultList2.forEach(System.out::println);
 
-        Query<Student11> query2 = session.createQuery(criteriaQuery);
-        List<Student11> resultList2 = query2.getResultList();
-        resultList2.forEach(System.out::println);
 
+        //!!!  3.Örnek, mathGrade değeri 80 den büyük olan dataları getirelim
+//        criteriaQuery.select(root)
+//                .where(cb.greaterThan(root.get("grade"),80));
+//
+//        Query<Student11> query3 = session.createQuery(criteriaQuery);
+//        List<Student11> resultList3 = query3.getResultList();
+//        resultList3.forEach(System.out::println);
+
+
+        //!!! 4.Örnek MathGrade değeri 95 den küçük olan datalar
+        criteriaQuery.select(root)
+                .where(cb.lessThan(root.get("grade"),95));
+
+        Query<Student11> query4 = session.createQuery(criteriaQuery);
+        List<Student11> resultList4 = query4.getResultList();
+        resultList4.forEach(System.out::println);
 
         tx.commit();
         session.close();
