@@ -5,6 +5,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class RunnerFetch03 {
     public static void main(String[] args) {
 
@@ -43,6 +46,9 @@ public class RunnerFetch03 {
 
         //***ÖDEV***
         //tüm developerların ismini ve kullandıkları computerın markasını yazdırınız.
+        String hql="SELECT d.name,c.brand FROM Developer03 d JOIN  Computer c ON d.computer.id=c.id";
+        List<Object[]> resultList=session.createQuery(hql).getResultList();
+        resultList.forEach(t-> System.out.println(Arrays.toString(t)));
 
         tx.commit();
         session.close();
