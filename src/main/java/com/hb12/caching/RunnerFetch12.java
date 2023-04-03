@@ -15,7 +15,7 @@ public class RunnerFetch12 {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        System.out.println("Ilk get islemi icin 1 id'li ögrenci icin : ");
+        System.out.println("************ Ilk get islemi icin 1 id'li ögrenci icin : *****************");
         Student12 student1 = session.get(Student12.class, 1L);
 
 
@@ -29,12 +29,11 @@ public class RunnerFetch12 {
 
         Session session2 = sf.openSession();
         Transaction tx2 = session2.beginTransaction();
-        tx2.commit();
 
-
-        System.out.println("Session.close() sonrasi get islemi icin 1 id'li ögrenci icin : ");
+        System.out.println("************ Session.close() sonrasi get islemi icin 1 id'li ögrenci icin :  *****************");
         Student12 student3 = session2.get(Student12.class, 1L);
 
+        tx2.commit();
         session2.close();
         sf.close();
     }
