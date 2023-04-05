@@ -1,7 +1,6 @@
 package com.tpe.manytomany;
 
-import com.tpe.onetomany_bi.Company3;
-import com.tpe.onetomany_bi.Developer06;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -24,6 +23,8 @@ public class RunnerSave07 {
         project2.getDevelopers().add(dev1);
         project2.getDevelopers().add(dev2);
         project2.getDevelopers().add(dev3);
+
+        //dev1.setProjects(project1);->cascadeType.ALL ile devler save yapınca projectler de save olsun istersek
 
 
 
